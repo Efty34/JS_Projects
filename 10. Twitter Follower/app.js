@@ -2,7 +2,7 @@ const body = document.querySelector("body");
 const themeR = document.querySelector(".themer");
 const followBtns = document.querySelectorAll(".follow-button");
 
-// HuXn
+// -----------> Mine 
 // followBtns.forEach((btn) => {
 //   btn.addEventListener("click", function () {
 //     this.classList.toggle("followed");
