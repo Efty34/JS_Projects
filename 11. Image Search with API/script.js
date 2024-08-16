@@ -8,9 +8,10 @@ const showMore = document.querySelector("#show-more-button");
 let inputData = "";
 let page = 1;
 
+
 const searchImages = async () => {
   inputData = inputEl.value;
-  const url = `https://api.unsplash.com/search/photos?page=${page}&query=${inputData}&client_id=${accessKey}`; 
+  const url = `https://api.unsplash.com/search/photos?page=${page}&query=${inputData}&client_id=${accessKey}`;
 
   try {
     const response = await fetch(url);
@@ -20,14 +21,13 @@ const searchImages = async () => {
     }
 
     const data = await response.json();
-    const results = data.results;
+    const { results } = data;
 
     if (page === 1) {
       searchResults.innerHTML = "";
     }
 
     results.forEach((result) => {
-      
       const imageWrapper = document.createElement("div");
       imageWrapper.classList.add("search-result");
 
@@ -50,7 +50,6 @@ const searchImages = async () => {
     if (page > 1) {
       showMore.style.display = "block";
     }
-    
   } catch (error) {
     console.error("Failed to fetch images:", error);
   }
